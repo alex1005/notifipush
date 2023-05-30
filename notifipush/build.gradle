@@ -3,16 +3,6 @@ plugins {
     id 'maven-publish'
 }
 
-publishing {
-    publications {
-        release(MavenPublication) {
-            afterEvaluate {
-                from components.release
-            }
-        }
-    }
-}
-
 android {
     namespace 'com.alexjprog.notifipush'
     compileSdk 33
@@ -39,6 +29,16 @@ android {
     publishing {
         singleVariant('release') {
             withSourcesJar()
+        }
+    }
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+            }
         }
     }
 }
