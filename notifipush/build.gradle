@@ -6,10 +6,6 @@ plugins {
 publishing {
     publications {
         release(MavenPublication) {
-            groupId = 'com.alexjprog.notifipush'
-            artifactId = 'notifipush'
-            version = '1.0'
-
             afterEvaluate {
                 from components.release
             }
