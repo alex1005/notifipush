@@ -3,7 +3,6 @@ package com.alexjprog.notifipush
 import com.alexjprog.notifipush.data.NetworkSource
 import com.alexjprog.notifipush.data.model.MainUserData
 import com.alexjprog.notifipush.data.model.UserAppTag
-import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.ktx.messaging
 import kotlinx.coroutines.CoroutineScope
@@ -38,7 +37,6 @@ object NotifiPush {
             NetworkSource.registerUser(user)
 
             Firebase.messaging.isAutoInitEnabled = true
-            Firebase.analytics.setAnalyticsCollectionEnabled(true)
 
             launch {
                 while (!userTagChannel.isClosedForReceive) {
