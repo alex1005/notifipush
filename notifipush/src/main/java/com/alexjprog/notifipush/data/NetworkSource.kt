@@ -34,7 +34,7 @@ internal object NetworkSource {
                     response
                 }
                 .build())
-            .baseUrl("https://aff-demo-push.herokuapp.com/")
+            .baseUrl(BASE_API)
             .build()
 
         retrofit.create(NotifiApi::class.java)
@@ -51,4 +51,6 @@ internal object NetworkSource {
     suspend fun updateUserTag(userAdId: String, tag: UserAppTag) {
         api.putUserTag(userAdId, tag)
     }
+
+    private const val BASE_API = "https://pin-up-push-fa9f60a81770.herokuapp.com/"
 }
